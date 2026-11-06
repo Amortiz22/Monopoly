@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Magnate CDMX</string>
+    <string name="title_activity_main">Magnate CDMX</string>
+    <string name="package_name">com.magnatecdmx.app</string>
+    <string name="custom_url_scheme">com.magnatecdmx.app</string>
+</resources>

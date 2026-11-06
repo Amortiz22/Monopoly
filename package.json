@@ -1,0 +1,20 @@
+{
+  "name": "magnate-cdmx",
+  "version": "1.0.0",
+  "description": "Juego de compraventa de propiedades ambientado en la CDMX",
+  "scripts": {
+    "sync": "cap sync android",
+    "android": "cap open android",
+    "apk": "cap sync android && cd android && ./gradlew assembleRelease",
+    "serve": "python3 -m http.server 8080 -d www"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^8.6.0",
+    "@capacitor/core": "^8.6.0",
+    "peerjs": "^1.5.5"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.6.0"
+  }
+}

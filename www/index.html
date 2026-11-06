@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0E3B3C">
+  <title>Magnate CDMX</title>
+  <link rel="icon" href="icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Magnate">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- INICIO -->
+  <section id="scr-home" class="screen active">
+    <div class="home-wrap">
+      <div class="logo">
+        <div class="logo-tile"><span>M</span></div>
+        <h1>Magnate<br><em>CDMX</em></h1>
+        <p class="tagline">Compra, construye y quiebra a tus amigos.</p>
+      </div>
+      <label class="field">Tu nombre
+        <input id="in-name" maxlength="14" placeholder="Ej. Ale" autocomplete="off">
+      </label>
+      <button class="btn primary big" id="btn-solo">Un jugador</button>
+      <button class="btn big hidden" id="btn-continue">Continuar partida</button>
+      <div class="row2">
+        <button class="btn big" id="btn-host">Crear sala</button>
+        <button class="btn big" id="btn-join">Unirme</button>
+      </div>
+      <p class="fine">El multijugador conecta los teléfonos directamente con un código de sala. Todos necesitan la app e internet.</p>
+    </div>
+  </section>
+
+  <!-- CONFIG UN JUGADOR -->
+  <section id="scr-solo" class="screen">
+    <header class="bar"><button class="icon" data-back>‹</button><h2>Un jugador</h2></header>
+    <div class="pad">
+      <p class="lbl">Modo de juego</p>
+      <div class="modes" id="solo-modes"></div>
+      <p class="mdesc" id="solo-mdesc"></p>
+      <p class="lbl">Rivales de la computadora</p>
+      <div class="seg" id="seg-bots">
+        <button data-n="1">1</button><button data-n="2" class="on">2</button><button data-n="3">3</button><button data-n="4">4</button><button data-n="5">5</button>
+      </div>
+      <p class="lbl">¿Más personas en este mismo teléfono?</p>
+      <div class="seg" id="seg-local">
+        <button data-n="0" class="on">No</button><button data-n="1">+1</button><button data-n="2">+2</button><button data-n="3">+3</button>
+      </div>
+      <p class="fine">Se pasan el teléfono en su turno.</p>
+      <button class="btn primary big" id="btn-solo-start">Empezar</button>
+    </div>
+  </section>
+
+  <!-- SALA -->
+  <section id="scr-lobby" class="screen">
+    <header class="bar"><button class="icon" id="btn-lobby-back">‹</button><h2 id="lobby-title">Sala</h2></header>
+    <div class="pad">
+      <div id="join-box" class="hidden">
+        <label class="field">Código de sala
+          <input id="in-code" maxlength="5" placeholder="ABCDE" autocomplete="off" autocapitalize="characters" class="code-in">
+        </label>
+        <button class="btn primary big" id="btn-join-go">Entrar</button>
+      </div>
+      <div id="code-box" class="hidden">
+        <p class="lbl">Comparte este código</p>
+        <div class="code" id="room-code">·····</div>
+        <button class="btn" id="btn-share">Compartir código</button>
+      </div>
+      <p class="status" id="lobby-status"></p>
+      <ul class="plist" id="lobby-players"></ul>
+      <div id="mode-box" class="hidden">
+        <p class="lbl">Modo de juego</p>
+        <div class="modes" id="host-modes"></div>
+        <p class="mdesc" id="host-mdesc"></p>
+      </div>
+      <div id="host-ctrls" class="hidden">
+        <div class="row2">
+          <button class="btn" id="btn-add-ai">+ Agregar IA</button>
+          <button class="btn" id="btn-rm-ai">− Quitar IA</button>
+        </div>
+        <button class="btn primary big" id="btn-start">Iniciar partida</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUEGO -->
+  <section id="scr-game" class="screen">
+    <header class="gbar">
+      <button class="icon" id="btn-menu">☰</button>
+      <div id="turn-label"></div>
+      <div id="net-dot" class="dot"></div>
+    </header>
+    <div id="board-wrap"><div id="board"></div></div>
+    <div id="players"></div>
+    <div id="actions"></div>
+    <div class="tools">
+      <button class="btn sm" id="btn-myprops">Propiedades</button>
+      <button class="btn sm" id="btn-trade">Intercambiar</button>
+      <button class="btn sm hidden" id="btn-ins">Seguro</button>
+      <button class="btn sm" id="btn-log">Historial</button>
+    </div>
+  </section>
+
+  <div id="modal" class="modal hidden"><div class="sheet" id="sheet"></div></div>
+  <div id="toast"></div>
+
+  <script src="js/vendor/peerjs.min.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/net.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
